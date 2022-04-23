@@ -1,0 +1,28 @@
+.container {
+  padding: 0 2rem;
+  width: 900px;
+  margin: 0 auto;
+}
+
+.main {
+  width: 900px;
+  min-height: 400px;
+  padding: 5rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer {
+  display: flex;
+  border-top: 1px solid #eaeaea;
+  text-align: center;
+}
+
+.footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}

@@ -1,0 +1,12 @@
+.nav {
+    margin: 0 auto;
+    display: flex;
+    font-size: 15px;
+    width: 100%;
+    background-color: aliceblue;
+}
+
+.li {
+    display: inline;
+    margin-left: 40px;
+}
