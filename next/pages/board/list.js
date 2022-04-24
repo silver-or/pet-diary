@@ -20,7 +20,7 @@ const Table = ({columns, colspan, data}) => {
                 : data.map((board) => (
                     <tr className={tableStyles.tr} key={board.title}>
                         <td className={tableStyles.td}>{board.title}</td>
-                        <td className={tableStyles.td}>{board.article}</td>
+                        <td className={tableStyles.td}>{board.content}</td>
                     </tr>
                 ))}
             </tbody>

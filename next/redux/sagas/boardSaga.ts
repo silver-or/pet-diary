@@ -5,14 +5,14 @@ import { addArticleApi } from '../api/boardApi'
 interface AddArticleType{
     type: string;
     payload: {
-        title: string, article: string
+        title: string, content: string
     }
 }
 
 interface AddArticleSuccessType{
     type: string;
     payload: {
-        title: string, article: string
+        title: string, content: string
     }
 }
 

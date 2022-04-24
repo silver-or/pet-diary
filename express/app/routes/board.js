@@ -11,10 +11,19 @@ const corsOptions = {
 const app = express()
 app.use(cors())
 
+app.use(function(_req, res, next) {
+    res.header(
+      "Access-Control-Allow-Headers",
+      "x-access-token, Origin, Content-Type, Accept"
+    );
+    next();
+});
+
 app.post('/add', cors(corsOptions), (req, res) => {
-    const service = new BoardService()
-    res.status(200).json(service.add(req, res))
-    // BoardService().add(req, res)
+    // const service = new BoardService()
+    // res.status(200).json(service.add(req, res))
+    console.log("express add 진입")
+    BoardService().add(req, res)
 })
 
 app.get('/list', cors(corsOptions), (req, res) => {

@@ -8,11 +8,11 @@ const headers = {
 
 export interface BoardType{
     title: string;
-    article: string;
+    content: string;
 }
 
 export const addArticleApi = async (payload : 
-    {title: string, article: string}) => {
+    {title: string, content: string}) => {
         try{
             const response : AxiosResponse<unknown, BoardType[]> = 
             await axios.post(`${SERVER}/board/add`, payload, {headers})

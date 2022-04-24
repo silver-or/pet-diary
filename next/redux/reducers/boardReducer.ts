@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit"
 
 export interface BoardType{
     title: string;
-    article: string;
+    content: string;
 }
 
 export interface BoardState{

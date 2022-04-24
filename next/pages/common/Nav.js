@@ -5,18 +5,20 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import tableStyles from "../common/styles/table.module.css"
 import MenuItem from '@mui/material/MenuItem';
+import theme from './myTheme';
+import { ThemeProvider } from '@mui/material/styles';
 
 export default function Nav(){
   const boardUrls = ["/board/add","/board/list", "/board/list2", "/board/modify","/board/remove"]
-  const boardSubTitle = ["글등록","글목록", "글목록2", "글수정","글삭제"]
+  const boardSubTitle = ["글 등록", "글 목록", "글 목록2", "글 수정", "글 삭제"]
 
   let userUrls = []
   let userSubTitle = []
 
   if (typeof window !== 'undefined') {
     if(localStorage.getItem("loginUser")) {
-      userUrls = ["/user/logout","/user/profile","/user/modify","/user/withdraw","/user/list"]
-      userSubTitle = ["로그아웃","프로필","회원수정","회원탈퇴","회원목록"]
+      userUrls = ["/user/logout","/user/profile","/user/modify","/user/withdraw"]
+      userSubTitle = ["로그아웃", "프로필", "회원 수정", "회원 탈퇴"]
     } else {
         userUrls = ["/user/join","/user/login"]
         userSubTitle = ["회원가입","로그인"]
@@ -25,12 +27,14 @@ export default function Nav(){
 
   return (
     <table className={tableStyles.nav}>
-      <tr>
-        <td>
-          <SubMenu title={"사용자"} urls={userUrls} subTitles={userSubTitle}/>
-          <SubMenu title={"게시판"} urls={boardUrls} subTitles={boardSubTitle}/>
-        </td>
-      </tr>
+      <tbody>
+          <tr>
+            <td>
+              <SubMenu title={"User"} urls={userUrls} subTitles={userSubTitle}/>
+              <SubMenu title={"Board"} urls={boardUrls} subTitles={boardSubTitle}/>
+            </td>
+          </tr>
+      </tbody>
     </table>
   );
 }
@@ -43,12 +47,11 @@ const SubMenu = (props) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  return <><Button
+  return <><ThemeProvider theme={theme}><Button
         id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
-        color="success"
         onClick={handleClick}
       >
         {props.title}
@@ -63,7 +66,7 @@ const SubMenu = (props) => {
         }}
       >
       {props.urls.map(function(url, i){
-        return <MenuItem onClick={handleClose}><Link href={url} key={i} underline="none" color="inherit">{props.subTitles[i]}</Link></MenuItem>
+        return <MenuItem onClick={handleClose} key={i}><Link href={url} key={i} underline="none" color="inherit">{props.subTitles[i]}</Link></MenuItem>
       })}
-      </Menu></>
+      </Menu></ThemeProvider></>
 }

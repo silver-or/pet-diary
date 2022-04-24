@@ -2,6 +2,7 @@ import {Layout} from "./common"
 import {wrapper} from '../redux/store.ts'
 import App from "next/app"
 import Head from "next/head"
+import "../public/fonts/font.css"
 // import './user/style/UserLayout.scss'
 // import "./user/style/UserRegister.scss"
 
@@ -13,7 +14,7 @@ const MyApp = ({ Component, pageProps }) => { // props
       <meta httpEquiv="X-UA-Compatible" content="ie=edge"/>
       <title>Pet Diary App</title>
     </Head>
-    <Layout>
+    <Layout className="main">
       <Component {...pageProps} />
     </Layout>
   </>)
